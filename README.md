@@ -4,7 +4,7 @@
 - just git clone it!
 ```bash
 mv ~/.config/nvim ~/.config/nvim-bak # back up if there is already neovim config
-git clone [this repo]() ~/.config/nvim # clone this repo
+git clone https://github.com/RizalAchp/nvim-config-lua.git ~/.config/nvim # clone this repo
 
 # download packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
