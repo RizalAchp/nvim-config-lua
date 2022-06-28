@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["kmonad-vim"] = {
-    loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/kmonad-vim",
-    url = "https://github.com/kmonad/kmonad-vim"
-  },
   kommentary = {
     config = { " require('plugins/commented')" },
     loaded = true,
@@ -167,6 +162,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nvim-autopairs"] = {
+    config = { " require('plugins/autopairs') " },
+    loaded = true,
+    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     config = { " require('plugins/cmp') " },
@@ -269,50 +270,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
- require('plugins/git-worktree') 
-time([[Config for git-worktree.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
- require('plugins/nvim-tree') 
-time([[Config for nvim-tree.lua]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
  require('plugins/luasnip') 
 time([[Config for LuaSnip]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins/treesitter') 
-time([[Config for nvim-treesitter]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
- require('plugins/bufferline')
-time([[Config for bufferline.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
- require('plugins/blankline') 
-time([[Config for indent-blankline.nvim]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
- require('plugins/zen-mode') 
-time([[Config for zen-mode.nvim]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
- require('plugins/commented')
-time([[Config for kommentary]], false)
--- Config for: lspkind-nvim
-time([[Config for lspkind-nvim]], true)
- require('plugins/lspkind') 
-time([[Config for lspkind-nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
- require('plugins/lualine') 
-time([[Config for lualine.nvim]], false)
 -- Config for: neogit
 time([[Config for neogit]], true)
  require('plugins/neogit') 
 time([[Config for neogit]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+ require('plugins/bufferline')
+time([[Config for bufferline.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins/autopairs') 
+time([[Config for nvim-autopairs]], false)
 -- Config for: telescope-bibtex.nvim
 time([[Config for telescope-bibtex.nvim]], true)
 try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\vbibtex\19load_extension\14telescope\frequire\0", "config", "telescope-bibtex.nvim")
@@ -325,18 +298,50 @@ time([[Config for formatter.nvim]], false)
 time([[Config for nvim-lsp-installer]], true)
  require('plugins/lsp_installer_nvim') 
 time([[Config for nvim-lsp-installer]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
- require('plugins/telescope') 
-time([[Config for telescope.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
  require('plugins/lspconfig') 
 time([[Config for nvim-lspconfig]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+ require('plugins/git-worktree') 
+time([[Config for git-worktree.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+ require('plugins/nvim-tree') 
+time([[Config for nvim-tree.lua]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+ require('plugins/telescope') 
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins/treesitter') 
+time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+ require('plugins/blankline') 
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+ require('plugins/commented')
+time([[Config for kommentary]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+ require('plugins/zen-mode') 
+time([[Config for zen-mode.nvim]], false)
+-- Config for: lspkind-nvim
+time([[Config for lspkind-nvim]], true)
+ require('plugins/lspkind') 
+time([[Config for lspkind-nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
  require('plugins/cmp') 
 time([[Config for nvim-cmp]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+ require('plugins/lualine') 
+time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

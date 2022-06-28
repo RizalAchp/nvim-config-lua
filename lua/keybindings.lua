@@ -7,6 +7,7 @@ map("n", "<Leader>w", ":set wrap! linebreak!<cr>") -- set wrap mode in buffer
 map("n", "j", "gj") -- motion to up easier
 map("n", "k", "gk") -- motion to down easier
 map("n", "Y", "y$") -- bind shift-y to copy from cursor position to the end of line
+map("n", "<M-b>", "<cmd>bd<cr>") -- bind shift-y to copy from cursor position to the end of line
 
 --- keeping it centered
 map("n", "n", "nzzzv") -- keep center while doing next on n bind
@@ -36,17 +37,28 @@ map("n", "<Leader>nf", "<cmd>NvimTreeFindFileToggle<cr>") -- idk? but it toggle 
 map("n", "<Leader>nr", "<cmd>NvimTreeRefresh<cr>") -- refresh the menu i guess?
 
 -- language server
-map("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>") -- language server binding for the definition
-map("n", "<Leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>") -- language server binding for the implementation
-map("n", "<Leader>gsh", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- language server binding for the signature_help
-map("n", "<Leader>grr", "<cmd>lua vim.lsp.buf.references()<CR>") -- language server binding for the references
-map("n", "<Leader>grn", "<cmd>lua vim.lsp.buf.rename()<CR>") -- language server binding for rename a text (same as regex or (%s/text/text)
-map("n", "<Leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>") -- language server binding for hoverin on
-map("n", "<Leader>gca", "<cmd>lua vim.lsp.buf.code_action()<CR>") -- language server binding for code action in buffer
-map("n", "<Leader>gsd", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>") -- language server binding for showing ine diagnostic
-map("n", "<Leader>gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>") -- language server binding for go to next diasnotic
-map("n", "<Leader>gp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>") -- language server binding for go previous diasnotic
-map("n", "<Leader>gf", "<cmd>Format<CR>") -- language server binding formating the buffer opened
+-- map("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- language server binding for the definition
+-- map("n", "<Leader>gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- language server binding for the implementation
+-- map("n", "<Leader>gsh", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- language server binding for the signature_help
+-- map("n", "<Leader>grr", "<cmd>lua vim.lsp.buf.references()<cr>") -- language server binding for the references
+-- map("n", "<Leader>grn", "<cmd>lua vim.lsp.buf.rename()<cr>") -- language server binding for rename a text (same as regex or (%s/text/text)
+-- map("n", "<Leader>gh", "<cmd>lua vim.lsp.buf.hover()<cr>") -- language server binding for hoverin on
+-- map("n", "<Leader>gca", "<cmd>lua vim.lsp.buf.code_action()<cr>") -- language server binding for code action in buffer
+-- map("n", "<Leader>gsd", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>") -- language server binding for showing ine diagnostic
+-- map("n", "<Leader>gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- language server binding for go to next diasnotic
+-- map("n", "<Leader>gp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- language server binding for go previous diasnotic
+-- map("n", "<Leader>gf", "<cmd>Format<cr>") -- language server binding formating the buffer opened
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- language server binding for the definition
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- language server binding for the implementation
+-- map("n", "gsh", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- language server binding for the signature_help
+map("n", "grr", "<cmd>lua vim.lsp.buf.references()<cr>") -- language server binding for the references
+map("n", "grn", "<cmd>lua vim.lsp.buf.rename()<cr>") -- language server binding for rename a text (same as regex or (%s/text/text)
+map("n", "ge", "<cmd>lua vim.lsp.buf.hover()<cr>") -- language server binding for hoverin on
+map("n", "gca", "<cmd>lua vim.lsp.buf.code_action()<cr>") -- language server binding for code action in buffer
+map("n", "gsd", "<cmd>lua vim.diagnostic.get()<cr>") -- language server binding for showing ine diagnostic
+map("n", "gf", "<cmd>Format<cr>") -- language server binding formating the buffer opened
+map("n", "gss", "<cmd>lua vim.diagnostic.open_float()<cr>")
+map("n", "gh", "<cmd>lua vim.diagnostic.hide()<cr>")
 
 -- neogit
 map("n", "<Leader>gt", "<cmd>Neogit<CR>") -- neogit command for opening neogit plugin(git in vim)

@@ -159,13 +159,12 @@ return require("packer").startup {
 		}
 
     use {
-      "kmonad/kmonad-vim"
-    }
-
-    use {
       "tpope/vim-obsession"
     }
-
+		use {
+			"windwp/nvim-autopairs",
+			config = [[ require('plugins/autopairs') ]]
+		}
 
     if packer_bootstrap then
       require("packer").sync()
