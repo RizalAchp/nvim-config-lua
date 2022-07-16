@@ -3,8 +3,8 @@ vim.cmd [[packadd packer.nvim]]
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap =
-    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+  packer_bootstrap = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
+    install_path })
 end
 
 return require("packer").startup {
@@ -31,7 +31,7 @@ return require("packer").startup {
       "onsails/lspkind-nvim",
       config = [[ require('plugins/lspkind') ]]
     }
-     --
+    --
 
     --[=[
     use {
@@ -76,11 +76,9 @@ return require("packer").startup {
     use {
       "nvim-telescope/telescope-bibtex.nvim",
       requires = {
-        {"nvim-telescope/telescope.nvim"}
+        { "nvim-telescope/telescope.nvim" }
       },
-      config = function()
-        require "telescope".load_extension("bibtex")
-      end
+      config = [[ require('plugins/telescope') ]]
     }
 
     use {
@@ -91,7 +89,10 @@ return require("packer").startup {
       },
       config = [[ require('plugins/luasnip') ]]
     }
-    use { "ellisonleao/gruvbox.nvim" }
+    use {
+      "ellisonleao/gruvbox.nvim",
+      config = [[ require('plugins/theme') ]]
+    }
 
     use {
       -- Nvim Treesitter configurations and abstraction layer
@@ -110,19 +111,26 @@ return require("packer").startup {
     }
 
     use {
-      "tpope/vim-eunuch"
+      "tpope/vim-eunuch",
+      opt = true,
+      cmd = { 'Remove', 'Delete', 'Move', 'Rename',
+              'Copy', 'Duplicate', 'Mkdir', 'Cfind',
+              'Clocate', 'Lfind', 'Wall', 'SudoWrite',
+              'SudoEdit' }
     }
 
     use {
       "nvim-lualine/lualine.nvim",
-      requires = {"kyazdani42/nvim-web-devicons", opt = true},
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = [[ require('plugins/lualine') ]]
     }
 
     use {
       "TimUntersberger/neogit",
-      requires = {"nvim-lua/plenary.nvim"},
-      config = [[ require('plugins/neogit') ]]
+      requires = { "nvim-lua/plenary.nvim" },
+      config = [[ require('plugins/neogit') ]],
+      opt = true,
+      cmd = "NeoGit"
     }
 
     use {
@@ -132,39 +140,48 @@ return require("packer").startup {
     }
 
     use {
-      "folke/zen-mode.nvim",
-      config = [[ require('plugins/zen-mode') ]]
-    }
-
-    use {
       "ThePrimeagen/git-worktree.nvim",
       config = [[ require('plugins/git-worktree') ]]
     }
 
-    use {
+    --[[ use {
       "mhartington/formatter.nvim",
       config = [[ require('plugins/formatter') ]]
-    }
-
-		use{
-			"b3nj5m1n/kommentary",
-			config = [[ require('plugins/commented')]]
-		}
-
-		use {
-			'akinsho/bufferline.nvim',
-			tag = "v2.*",
-			requires = 'kyazdani42/nvim-web-devicons',
-			config = [[ require('plugins/bufferline')]]
-		}
+    -- } ]]--
 
     use {
-      "tpope/vim-obsession"
+      "b3nj5m1n/kommentary",
+      config = [[ require('plugins/commented')]]
     }
-		use {
-			"windwp/nvim-autopairs",
-			config = [[ require('plugins/autopairs') ]]
-		}
+
+    use {
+      'akinsho/bufferline.nvim',
+      tag = "v2.*",
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = [[ require('plugins/bufferline')]]
+    }
+
+    use {
+      "windwp/nvim-autopairs",
+      config = [[ require('plugins/autopairs') ]]
+    }
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    })
+
+    use {
+      "norcalli/nvim-colorizer.lua",
+      setup = [[ require('plugins/nvim-colorizer') ]],
+      opt = true,
+      cmd = { 'ColorizerAttachToBuffer', 'ColorizerToggle', 'ColorizerDetachFromBuffer', 'ColorizerReloadAllBuffer' }
+    }
+    --[[ use {
+      "dstein64/vim-startuptime",
+      opt = true,
+      cmd = "StartupTime"
+    } ]]
 
     if packer_bootstrap then
       require("packer").sync()

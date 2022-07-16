@@ -111,12 +111,6 @@ _G.packer_plugins = {
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["formatter.nvim"] = {
-    config = { " require('plugins/formatter') " },
-    loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/formatter.nvim",
-    url = "https://github.com/mhartington/formatter.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -129,6 +123,7 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
   ["gruvbox.nvim"] = {
+    config = { " require('plugins/theme') " },
     loaded = true,
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
@@ -157,10 +152,19 @@ _G.packer_plugins = {
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  neogit = {
-    config = { " require('plugins/neogit') " },
+  ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/neogit",
+    needs_bufread = false,
+    path = "/home/rizal/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  neogit = {
+    commands = { "NeoGit" },
+    config = { " require('plugins/neogit') " },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/rizal/.local/share/nvim/site/pack/packer/opt/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-autopairs"] = {
@@ -174,6 +178,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    commands = { "ColorizerAttachToBuffer", "ColorizerToggle", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffer" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/rizal/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
     config = { " require('plugins/lsp_installer_nvim') " },
@@ -230,7 +242,7 @@ _G.packer_plugins = {
     url = "https://github.com/BurntSushi/ripgrep"
   },
   ["telescope-bibtex.nvim"] = {
-    config = { "\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\vbibtex\19load_extension\14telescope\frequire\0" },
+    config = { " require('plugins/telescope') " },
     loaded = true,
     path = "/home/rizal/.local/share/nvim/site/pack/packer/start/telescope-bibtex.nvim",
     url = "https://github.com/nvim-telescope/telescope-bibtex.nvim"
@@ -252,96 +264,114 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-eunuch"] = {
-    loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/vim-eunuch",
+    commands = { "Remove", "Delete", "Move", "Rename", "Copy", "Duplicate", "Mkdir", "Cfind", "Clocate", "Lfind", "Wall", "SudoWrite", "SudoEdit" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/rizal/.local/share/nvim/site/pack/packer/opt/vim-eunuch",
     url = "https://github.com/tpope/vim-eunuch"
-  },
-  ["vim-obsession"] = {
-    loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/vim-obsession",
-    url = "https://github.com/tpope/vim-obsession"
-  },
-  ["zen-mode.nvim"] = {
-    config = { " require('plugins/zen-mode') " },
-    loaded = true,
-    path = "/home/rizal/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
- require('plugins/luasnip') 
-time([[Config for LuaSnip]], false)
--- Config for: neogit
-time([[Config for neogit]], true)
- require('plugins/neogit') 
-time([[Config for neogit]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
- require('plugins/bufferline')
-time([[Config for bufferline.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
- require('plugins/autopairs') 
-time([[Config for nvim-autopairs]], false)
--- Config for: telescope-bibtex.nvim
-time([[Config for telescope-bibtex.nvim]], true)
-try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\vbibtex\19load_extension\14telescope\frequire\0", "config", "telescope-bibtex.nvim")
-time([[Config for telescope-bibtex.nvim]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
- require('plugins/formatter') 
-time([[Config for formatter.nvim]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
- require('plugins/lsp_installer_nvim') 
-time([[Config for nvim-lsp-installer]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
- require('plugins/lspconfig') 
-time([[Config for nvim-lspconfig]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
- require('plugins/git-worktree') 
-time([[Config for git-worktree.nvim]], false)
+-- Setup for: nvim-colorizer.lua
+time([[Setup for nvim-colorizer.lua]], true)
+ require('plugins/nvim-colorizer') 
+time([[Setup for nvim-colorizer.lua]], false)
+-- Setup for: markdown-preview.nvim
+time([[Setup for markdown-preview.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
+time([[Setup for markdown-preview.nvim]], false)
+time([[packadd for markdown-preview.nvim]], true)
+vim.cmd [[packadd markdown-preview.nvim]]
+time([[packadd for markdown-preview.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
  require('plugins/nvim-tree') 
 time([[Config for nvim-tree.lua]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
- require('plugins/telescope') 
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('plugins/treesitter') 
-time([[Config for nvim-treesitter]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+ require('plugins/bufferline')
+time([[Config for bufferline.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
  require('plugins/blankline') 
 time([[Config for indent-blankline.nvim]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
- require('plugins/commented')
-time([[Config for kommentary]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
- require('plugins/zen-mode') 
-time([[Config for zen-mode.nvim]], false)
--- Config for: lspkind-nvim
-time([[Config for lspkind-nvim]], true)
- require('plugins/lspkind') 
-time([[Config for lspkind-nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
- require('plugins/cmp') 
-time([[Config for nvim-cmp]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
  require('plugins/lualine') 
 time([[Config for lualine.nvim]], false)
+-- Config for: gruvbox.nvim
+time([[Config for gruvbox.nvim]], true)
+ require('plugins/theme') 
+time([[Config for gruvbox.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('plugins/treesitter') 
+time([[Config for nvim-treesitter]], false)
+-- Config for: lspkind-nvim
+time([[Config for lspkind-nvim]], true)
+ require('plugins/lspkind') 
+time([[Config for lspkind-nvim]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+ require('plugins/commented')
+time([[Config for kommentary]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+ require('plugins/autopairs') 
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+ require('plugins/lspconfig') 
+time([[Config for nvim-lspconfig]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+ require('plugins/luasnip') 
+time([[Config for LuaSnip]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+ require('plugins/git-worktree') 
+time([[Config for git-worktree.nvim]], false)
+-- Config for: telescope-bibtex.nvim
+time([[Config for telescope-bibtex.nvim]], true)
+ require('plugins/telescope') 
+time([[Config for telescope-bibtex.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+ require('plugins/cmp') 
+time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+ require('plugins/telescope') 
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+ require('plugins/lsp_installer_nvim') 
+time([[Config for nvim-lsp-installer]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ColorizerReloadAllBuffer lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "ColorizerReloadAllBuffer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ColorizerDetachFromBuffer lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "ColorizerDetachFromBuffer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Duplicate lua require("packer.load")({'vim-eunuch'}, { cmd = "Duplicate", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SudoEdit lua require("packer.load")({'vim-eunuch'}, { cmd = "SudoEdit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ColorizerAttachToBuffer lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "ColorizerAttachToBuffer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ColorizerToggle lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "ColorizerToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Cfind lua require("packer.load")({'vim-eunuch'}, { cmd = "Cfind", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Clocate lua require("packer.load")({'vim-eunuch'}, { cmd = "Clocate", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Lfind lua require("packer.load")({'vim-eunuch'}, { cmd = "Lfind", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Wall lua require("packer.load")({'vim-eunuch'}, { cmd = "Wall", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SudoWrite lua require("packer.load")({'vim-eunuch'}, { cmd = "SudoWrite", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Remove lua require("packer.load")({'vim-eunuch'}, { cmd = "Remove", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Delete lua require("packer.load")({'vim-eunuch'}, { cmd = "Delete", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Move lua require("packer.load")({'vim-eunuch'}, { cmd = "Move", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Rename lua require("packer.load")({'vim-eunuch'}, { cmd = "Rename", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Copy lua require("packer.load")({'vim-eunuch'}, { cmd = "Copy", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Mkdir lua require("packer.load")({'vim-eunuch'}, { cmd = "Mkdir", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NeoGit lua require("packer.load")({'neogit'}, { cmd = "NeoGit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 if should_profile then save_profiles() end
 
 end)

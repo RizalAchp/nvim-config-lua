@@ -6,13 +6,6 @@ local cmd = vim.cmd -- execute Vim commands
 -- local b     = vim.bo            -- buffer-scoped options
 -- local w     = vim.wo            -- windows-scoped options
 
-	require('gruvbox')
-
-cmd('autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=grey') -- to Show whitespace, MUST be inserted BEFORE the colorscheme command
-vim.cmd([[colorscheme gruvbox]])
-vim.g.gruvbox_contrast_dark = 'hard'
--- vim.g.gruvbox_
-
 set.background = "dark" -- or "light" for light mode
 set.guifont = 'JetBrainsMono Nerd Font Medium 11'
 set.termguicolors = true -- Enable GUI colors for the terminal to get truecolor
@@ -48,7 +41,8 @@ set.sidescrolloff = 2 -- keep 30 columns visible left and right of the cursor at
 set.backspace = 'indent,start,eol' -- make backspace behave like normal again
 set.mouse = "a" -- turn on mouse interaction
 set.updatetime = 500 -- CursorHold interval
-set.softtabstop = 4
+-- set.softtabstop = 4
+set.expandtab = true
 -- set.textwidth = 100
 set.showtabline = 4
 set.shiftwidth = 4 -- spaces per tab (when shifting), when using the >> or << commands, shift lines by 4 spaces
@@ -108,8 +102,19 @@ cmd(
 cmd(
   [[ autocmd FileType xml,html,xhtml,css,scssjavascript,lua,dart setlocal shiftwidth=2 tabstop=2 ]])
 
-cmd(
-  [[ autocmd FileType c,cpp setlocal shiftwidth=4 tabstop=4 ]])
 -- json
 cmd(
   [[ au BufEnter *.json set ai expandtab shiftwidth=2 tabstop=2 sta fo=croql ]])
+
+function FormatRangeOperator()
+  local old_func = vim.go.operatorfunc  -- ERROR: Error executing lua: <path to init.lua>: attampt to index field 'go' (a nil value)
+  _G.op_func_formatting = function()
+    local start = vim.api.nvim_buf_get_mark(0, '[')
+    local finish = vim.api.nvim_buf_get_mark(0, ']')
+    vim.lsp.buf.range_formatting({}, start, finish)
+    vim.go.operatorfunc = old_func
+    _G.op_func_formatting = nil
+  end
+  vim.go.operatorfunc = 'v:lua.op_func_formatting'
+  vim.api.nvim_feedkeys('g@', 'n', false)
+end

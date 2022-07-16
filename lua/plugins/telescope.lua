@@ -1,6 +1,7 @@
-require("telescope").load_extension("project")
+local tlscp = require("telescope")
 
-require("telescope").setup {
+tlscp.load_extension("project")
+tlscp.setup {
   defaults = {
     file_ignore_patterns = {"node_modules", ".git", "dist"},
     vimgrep_arguments = {
@@ -61,4 +62,5 @@ require("telescope").setup {
   }
 }
 
-require('telescope').load_extension('fzf')
+tlscp.load_extension("bibtex")
+tlscp.load_extension('fzf')
